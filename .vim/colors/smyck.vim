@@ -69,6 +69,9 @@ hi Symbol               cterm=none ctermbg=none ctermfg=9           gui=none    
 hi Method               cterm=none ctermbg=none ctermfg=15          gui=none        guifg=#F7F7F7
 hi Interpolation        cterm=none ctermbg=none ctermfg=6           gui=none        guifg=#2EB5C1
 
+hi IndentGuidesOdd  guibg=#303030 ctermbg=236
+hi IndentGuidesEven guibg=#3a3a3a ctermbg=237
+
 " Erlang
 hi link erlangAtom            Keyword
 hi link erlangBitType         Keyword
