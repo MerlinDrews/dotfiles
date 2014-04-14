@@ -47,6 +47,7 @@ set incsearch
 set showmatch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
+nnoremap <leader>sy :SyntasticCheck<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
