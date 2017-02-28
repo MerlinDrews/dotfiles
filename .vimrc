@@ -3,13 +3,11 @@ execute pathogen#infect()
 filetype plugin indent on
 syntax enable
 
-
 set t_Co=256
-colorscheme smyck
-
+colorscheme mayansmoke
 if has("gui_running")
-  set guifont=Liberation\ Mono\ 12
-  colorscheme smyck
+  colorscheme mayansmoke 
+  set guifont=DejaVu\ Sans\ Mono:h13
 endif
 
 set nocompatible
@@ -52,11 +50,14 @@ nnoremap <tab> %
 vnoremap <tab> %
 
 set wrap
-set textwidth=79
+set linebreak
+set nolist " list disables linebreak
+set textwidth=0
+set wrapmargin=0
 set formatoptions=qrn1
 set colorcolumn=85
 
-set list
+" set list
 
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -68,7 +69,6 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
-nnoremap ; :
 
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>a :ack-grep
@@ -101,3 +101,5 @@ set list listchars=tab:»·,trail:·,eol:¬
 let g:indent_guides_auto_colors = 0
 
 set pastetoggle=<F2>
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
