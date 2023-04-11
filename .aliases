@@ -1,0 +1,63 @@
+# git
+alias gpa='git add -A .; git commit -m "automatic commit"; git push origin main'
+alias git-pac="export GITHUB_TOKEN=$(cat ~/.git-tokens/github-packages-avs-pac)"
+
+# folders
+alias leo='cd ~/Clients/Leogistics'
+
+# coding
+alias yest='npm test'
+alias yart='npm start'
+alias ye2e='npm run test:e2e'
+
+# terraform
+#alias terra_creds="export TF_ADMIN='-terraform-admin' &&  TF_CREDS=~/.config/gcloud/-terraform-admin.json; export GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/-terraform-admin.json"
+alias tg="terragrunt"
+alias tf="terraform"
+
+#alias payment_terra_creds="export TF_ADMIN='-staging-marketplace' &&  TF_CREDS=~/.config/gcloud/avs-staging-marketplace.json; export GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/avs-staging-marketplace.json"
+
+# Kubernetes
+alias k-del-evicted="kubectl get pods --all-namespaces -o json | jq '.items[] | select(.status.reason!=null) | select(.status.reason | contains(\"Evicted\")) | \"kubectl delete pods \(.metadata.name) -n \(.metadata.namespace)\"' | xargs -n 1 bash -c"
+alias k-del-crashed="kubectl get pods --all-namespaces -o json | jq '.items[] | select(.status.reason!=null) | select(.status.reason | contains(\"CrashLoopBackOff\")) | \"kubectl delete pods \(.metadata.name) -n \(.metadata.namespace)\"' | xargs -n 1 bash -c"
+alias k-del-affinity="kubectl get pods --all-namespaces -o json | jq '.items[] | select(.status.reason!=null) | select(.status.reason | contains(\"NodeAffinity\")) | \"kubectl delete pods \(.metadata.name) -n \(.metadata.namespace)\"' | xargs -n 1 bash -c"
+alias k-del-shutdown="kubectl get pods --all-namespaces -o json | jq '.items[] | select(.status.reason!=null) | select(.status.reason | contains(\"Shutdown\")) | \"kubectl delete pods \(.metadata.name) -n \(.metadata.namespace)\"' | xargs -n 1 bash -c"
+alias k-del-terminated="kubectl get pods --all-namespaces -o json | jq '.items[] | select(.status.reason!=null) | select(.status.reason | contains(\"Terminated\")) | \"kubectl delete pods \(.metadata.name) -n \(.metadata.namespace)\"' | xargs -n 1 bash -c"
+
+alias avs-linkerd="kubectl port-forward service/web -n=linkerd-viz 8084:8084"
+
+alias kmini="export KUBECONFIG=~/.kube/config-minikube"
+alias ktest="export KUBECONFIG=~/.kube/config.testing"
+alias kstaging="export KUBECONFIG=~/.kube/config.staging"
+alias kpreprod="export KUBECONFIG=~/.kube/config.old.preprod"
+alias kprod="export KUBECONFIG=~/.kube/config.production"
+
+alias k8s-show-ns="kubectl api-resources --verbs=list --namespaced -o name  | xargs -n 1 kubectl get --show-kind --ignore-not-found  -n"
+# GCloud
+alias gcldefault="gcloud config configurations activate default"
+alias gclservice="gcloud config configurations activate service-account-staging"
+alias gclproject="gcloud config set project"
+
+# helm version
+alias makehelm3="brew unlink helm@2 && brew link helm"
+alias makehelm2="brew unlink helm && brew link helm@2"
+
+alias maketerra1="brew unlink terraform@0.13 && brew link terraform"
+alias maketerra0="brew unlink terraform && brew link terraform@0.13"
+
+# Kubectl debug pods
+alias debug-alpine="kubectl run -i --tty --rm debug --image=alpine:3 --restart=Never -- sh"
+alias debug-curl="kubectl run -i --tty --rm debug-curl --image=alpine/curl:3.14 --restart=Never -- curl /ambassador/v0/diag/"
+
+# AWS Profiles
+alias aws-admin="export AWS_PROFILE=leo-admin"
+alias aws-staging="export AWS_PROFILE=leo-staging"
+alias aws-terraform-state="export AWS_PROFILE=leo-terraform-state"
+alias aws-terraformer="export AWS_PROFILE=leo-terraformer"
+alias aws-preprod="export AWS_PROFILE=leo-preprod"
+alias aws-production="export AWS_PROFILE=leo-production"
+
+# Ambassador
+alias pfw-ambassador="kubectl port-forward -n default deploy/ambassador 8877"
+alias pfw-emissary="kubectl port-forward -n default deploy/emissary-emissary-ingress 8877"
+

@@ -1,5 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/pue/.vim/colors'
-let g:netrw_dirhist_2='/home/pue/.vim'
-let g:netrw_dirhist_3='/home/pue/dotfiles'
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Users/medr/.ssh'
+let g:netrw_dirhist_4='/Users/medr/.aws'
+let g:netrw_dirhist_3='/Users/medr/.git-tokens'
+let g:netrw_dirhist_2='/Users/medr/.aws'
+let g:netrw_dirhist_1='/Users/medr/Repositories/androidquorum/.git'
+let g:netrw_dirhist_0='/Users/medr/.kube'
+let g:netrw_dirhist_9='/Users/medr/.aws'
+let g:netrw_dirhist_8='/Users/medr/.kube'
+let g:netrw_dirhist_7='/Users/medr/.gsutil/tracker-files'
+let g:netrw_dirhist_6='/Users/medr/.gsutil'

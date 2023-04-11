@@ -3,11 +3,13 @@ execute pathogen#infect()
 filetype plugin indent on
 syntax enable
 
+
 set t_Co=256
-colorscheme mayansmoke
+colorscheme desert
+
 if has("gui_running")
-  colorscheme mayansmoke 
-  set guifont=DejaVu\ Sans\ Mono:h13
+  set guifont=Liberation\ Mono\ 12
+  colorscheme mayansmoke
 endif
 
 set nocompatible
@@ -33,6 +35,14 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set relativenumber
+" Let's save undo info!
+if !isdirectory($HOME."/.vim")
+    call mkdir($HOME."/.vim", "", 0770)
+endif
+if !isdirectory($HOME."/.vim/undo-dir")
+    call mkdir($HOME."/.vim/undo-dir", "", 0700)
+endif
+set undodir=~/.vim/undo-dir
 set undofile
 
 let mapleader = ","
@@ -51,22 +61,12 @@ vnoremap <tab> %
 
 set wrap
 set linebreak
-set nolist " list disables linebreak
-set textwidth=0
-set wrapmargin=0
+set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=85
 
-" set list
+set list
 
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
@@ -81,6 +81,11 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
 
 let g:vim_markdown_folding_disabled=1
 set novb
@@ -101,5 +106,3 @@ set list listchars=tab:»·,trail:·,eol:¬
 let g:indent_guides_auto_colors = 0
 
 set pastetoggle=<F2>
-set noerrorbells visualbell t_vb=
-autocmd GUIEnter * set visualbell t_vb=
